@@ -22,6 +22,8 @@ def isValid(s:str)->bool:
         if character in open_pairings:
             open_queue.append(character)
         elif character in close_pairings:
+            if len(open_queue) == 0:
+                return False
             top = open_queue.pop()
             if open_pairings[top] != character:
                 return False
